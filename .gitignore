@@ -1,0 +1,30 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+tmlog*
+logs/
+bin/*
+out/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+# Gradle
+.gradle/
+build/
+
+# Maven
+target/
+
+### MAC ###
+.DS_Store
