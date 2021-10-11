@@ -19,7 +19,7 @@ class BinaryHeapPriorityQueueSpec extends Specification {
                 "city", "state", "phone", 9)
 
 
-        def queue = new BinaryHeapPriorityQueue(PhoneCallComparator.MAX_COMPARATOR);
+        def queue = new PriorityQueueRecursiveBinaryHeap(PhoneCallComparator.MAX_COMPARATOR);
         queue.push(priority10)
         queue.push(priority20)
         queue.push(priority5)

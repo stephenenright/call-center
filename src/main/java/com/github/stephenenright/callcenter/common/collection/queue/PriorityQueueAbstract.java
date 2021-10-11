@@ -5,22 +5,20 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * A recursive implementation of a priority queue that uses a binary heap.
- */
-public class BinaryHeapPriorityQueue<T> implements PriorityQueue<T> {
+//TODO Refactor Extract Heap Code To A Heap Data Structure
+public abstract class PriorityQueueAbstract<T> implements PriorityQueue<T> {
 
     //store the elements in the list
-    private final List<T> list;
+    protected final List<T> list;
 
     //used to order by min or max
-    private final Comparator<T> comparator;
+    protected final Comparator<T> comparator;
 
-    public BinaryHeapPriorityQueue(Comparator<T> comparator) {
+    public PriorityQueueAbstract(Comparator<T> comparator) {
         this(comparator, 11);
     }
 
-    public BinaryHeapPriorityQueue(Comparator<T> comparator, int initialCapacity) {
+    public PriorityQueueAbstract(Comparator<T> comparator, int initialCapacity) {
         this.comparator = comparator;
 
         //A list is used here rather than an array to simplify the code -- array resizing ....
@@ -59,50 +57,19 @@ public class BinaryHeapPriorityQueue<T> implements PriorityQueue<T> {
         return Optional.of(maxElement);
     }
 
-
     @Override
     public boolean isEmpty() {
         return list.isEmpty();
     }
 
-    private void swim(int index) {
-        if (index == 0) {
-            return;
-        }
 
-        int parent = (index - 1) / 2;
-        if (comparator.compare(list.get(index), list.get(parent)) > 0) {
-            swap(index, parent);
-            swim((parent));
-        }
-    }
-
-    private void sink(int index) {
-        final int left = index * 2 + 1;
-        final int right = index * 2 + 2;
-
-        if (left >= list.size()) {
-            return;
-        }
-
-        int maxChild = left;
-
-        if (right < list.size() && comparator.compare(list.get(left), list.get(right)) < 0) {
-            maxChild = right;
-        } else {
-            maxChild = left;
-        }
-
-
-        if (comparator.compare(list.get(index), list.get(maxChild)) < 0) {
-            swap(index, maxChild);
-            sink(maxChild);
-        }
-    }
-
-    private void swap(int first, int second) {
+    protected void swap(int first, int second) {
         T temp = list.get(first);
         list.set(first, list.get(second));
         list.set(second, temp);
     }
+
+    protected abstract void sink(int index);
+
+    protected abstract void swim(int index);
 }
