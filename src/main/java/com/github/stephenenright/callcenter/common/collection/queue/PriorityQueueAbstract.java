@@ -6,6 +6,11 @@ import java.util.List;
 import java.util.Optional;
 
 //TODO Refactor Extract Heap Code To A Heap Data Structure
+
+/**
+ * Abstract priority queue that contains common code that is shared between the recursive and non-recursive versions.
+ * @param <T>   the type of element the queue holds
+ */
 abstract class PriorityQueueAbstract<T> implements PriorityQueue<T> {
 
     //store the elements in the list
@@ -68,7 +73,7 @@ abstract class PriorityQueueAbstract<T> implements PriorityQueue<T> {
         list.set(first, list.get(second));
         list.set(second, temp);
     }
-
+    
     protected abstract void sink(int index);
 
     protected abstract void swim(int index);
