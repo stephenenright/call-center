@@ -28,7 +28,6 @@ public class PriorityQueueRecursiveBinaryHeap<T> extends PriorityQueueAbstract<T
         }
     }
 
-
     @Override
     protected void sink(int index) {
         final int left = index * 2 + 1;
@@ -45,7 +44,6 @@ public class PriorityQueueRecursiveBinaryHeap<T> extends PriorityQueueAbstract<T
         } else {
             maxChild = left;
         }
-
 
         if (comparator.compare(list.get(index), list.get(maxChild)) < 0) {
             swap(index, maxChild);

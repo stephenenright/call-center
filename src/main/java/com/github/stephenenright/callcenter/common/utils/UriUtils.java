@@ -6,7 +6,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 /**
  * Helper class for working with uri's
  */
-public class UriUtils {
+public abstract class UriUtils {
 
     public static final String createUri(ServiceConfigurationSettings settings) {
         return UriComponentsBuilder.newInstance()

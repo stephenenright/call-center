@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+logging:
+  level:
+    root: info
+    com.github.stephenenright: debug
+    org.springframework.web: info
+
+callCenter:
+  service:
+    phoneAnswer:
+      scheme: ws
+      host: localhost
+      port: 7777

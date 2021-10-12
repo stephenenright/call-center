@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 //TODO Refactor Extract Heap Code To A Heap Data Structure
-public abstract class PriorityQueueAbstract<T> implements PriorityQueue<T> {
+abstract class PriorityQueueAbstract<T> implements PriorityQueue<T> {
 
     //store the elements in the list
     protected final List<T> list;

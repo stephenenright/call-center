@@ -16,7 +16,6 @@ public class ServiceConfigurationSettings {
         this.scheme = scheme;
     }
 
-
     public String getHost() {
         return host;
     }

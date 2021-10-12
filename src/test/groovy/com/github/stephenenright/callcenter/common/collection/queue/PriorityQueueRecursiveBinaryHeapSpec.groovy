@@ -5,7 +5,7 @@ import com.github.stephenenright.callcenter.domain.entity.PhoneCall
 import spock.lang.Specification
 
 
-class BinaryHeapPriorityQueueSpec extends Specification {
+class PriorityQueueRecursiveBinaryHeapSpec extends Specification {
 
     def 'pop on queue should return the phone call with the highest priority'() {
         given:
@@ -46,6 +46,5 @@ class BinaryHeapPriorityQueueSpec extends Specification {
 
         queue.isEmpty() == true
         queue.pop().empty == true  // no items n the queue
-
     }
 }
