@@ -1,7 +1,8 @@
 package com.github.stephenenright.callcenter.infrastructure.configuration;
 
-import com.github.stephenenright.callcenter.common.collection.queue.PriorityQueueRecursiveBinaryHeap;
+import com.github.stephenenright.callcenter.common.collection.queue.PriorityQueueBinaryHeap;
 import com.github.stephenenright.callcenter.common.collection.queue.PriorityQueue;
+import com.github.stephenenright.callcenter.common.collection.queue.PriorityQueueSynchronized;
 import com.github.stephenenright.callcenter.domain.comparator.PhoneCallComparator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +15,7 @@ public class CallCenterConfiguration {
      */
     @Bean
     public PriorityQueue priorityQueueMaxHeap() {
-        return new PriorityQueueRecursiveBinaryHeap(PhoneCallComparator.MAX_COMPARATOR);
+        return new PriorityQueueSynchronized(
+                new PriorityQueueBinaryHeap(PhoneCallComparator.MAX_COMPARATOR));
     }
 }

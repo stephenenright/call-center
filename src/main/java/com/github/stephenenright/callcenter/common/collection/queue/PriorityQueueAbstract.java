@@ -73,7 +73,7 @@ abstract class PriorityQueueAbstract<T> implements PriorityQueue<T> {
         list.set(first, list.get(second));
         list.set(second, temp);
     }
-    
+
     protected abstract void sink(int index);
 
     protected abstract void swim(int index);
